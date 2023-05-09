@@ -1,8 +1,7 @@
-# FlippingCards
-This is the simple project of FlippingCards made by using js
-
 # :computer: स्मरणशक्ति मापन खेल
 
+# Flipping Cards
+This is a simple project of FlippingCards game made by using concepts of HTML,CSS & JavaScript.
 
 ## :handshake: Contributing
 
