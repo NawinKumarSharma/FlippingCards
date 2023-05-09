@@ -1,7 +1,7 @@
 const cards = document.querySelectorAll(".card")
 console.log(cards);
 
-//variables
+// variables
 var isFlipped = false;
 var firstCard;
 var secondCard;
@@ -9,8 +9,6 @@ var secondCard;
 cards.forEach((card) => card.addEventListener("click", flip))
 
 function flip() {
-  // console.log("Card flipped");
-  // console.log(this);
   this.classList.add("flip");
   if (!isFlipped) {
     isFlipped = true;
@@ -24,7 +22,6 @@ function flip() {
 }
 
 function checkIt() {
-  // console.log("Checking");
   if (firstCard.dataset.image === secondCard.dataset.image) {
     success();
   } else {
@@ -35,7 +32,6 @@ function checkIt() {
 
 
 function success() {
-  // console.log("succeed");
   firstCard.removeEventListener("click", flip)
   secondCard.removeEventListener("click", flip)
   reset();
@@ -44,7 +40,6 @@ function success() {
 
 
 function fail() {
-  // console.log("failed");
   setTimeout(() => {
     firstCard.classList.remove("flip");
     secondCard.classList.remove("flip");
@@ -60,7 +55,9 @@ function reset() {
   secondCard = null;
 
 }
+
 //TODO : shuffle
+
 (function shuffle() {
   cards.forEach((card) => {
     var index = Math.floor(Math.random() * 16)
