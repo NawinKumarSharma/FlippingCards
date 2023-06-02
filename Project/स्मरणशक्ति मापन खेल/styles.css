@@ -11,14 +11,17 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  display: flex;
+
 }
 
 .gameContainer {
   width: 600px;
   height: 600px;
-  margin: auto;
+  padding: 3em;
+  margin: auto; 
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   perspective: 1000px;
 }
@@ -61,14 +64,18 @@ body {
 
 .footer {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items : center;
   vertical-align: middle;
-  position: absolute;
+  padding-top: 30px;
+  position: static;
   bottom: 10px;
   width: 100%;
 }
 
 .button {
-  position: relative;
+  position: absolute;
   background-color: transparent;
   color: #e8e8e8;
   font-size: 17px;
