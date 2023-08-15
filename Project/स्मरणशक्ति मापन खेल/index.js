@@ -2,9 +2,9 @@ const cards = document.querySelectorAll(".card")
 console.log(cards);
 
 // variables
-var isFlipped = false;
-var firstCard;
-var secondCard;
+let isFlipped = false;
+let firstCard;
+let secondCard;
 
 cards.forEach((card) => card.addEventListener("click", flip))
 
