@@ -1,27 +1,30 @@
 const cards = document.querySelectorAll(".card")
-console.log(cards);
 
 // variables
 var isFlipped = false;
 var firstCard;
 var secondCard;
+let lockBoard = false; // Prevents clicking during card flipping and comparison
 
-cards.forEach((card) => card.addEventListener("click", flip))
+
+cards.forEach((card) => card.addEventListener("click", flip));
 
 function flip() {
+  if (lockBoard) return;
+  if (this === firstCard) return; // It ignores clicking on the same card
+
   this.classList.add("flip");
   if (!isFlipped) {
     isFlipped = true;
-    firstCard = this
+    firstCard = this;
   } else {
     secondCard = this;
-    console.log(firstCard);
-    console.log(secondCard);
     checkIt();
   }
 }
 
 function checkIt() {
+  lockBoard = true;
   if (firstCard.dataset.image === secondCard.dataset.image) {
     success();
   } else {
@@ -50,21 +53,15 @@ function fail() {
 
 
 function reset() {
-  isFlipped = false;
-  firstCard = null;
-  secondCard = null;
-
+  [isFlipped, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
 }
 
-//TODO : shuffle
+// Shuffling the cards using the Fisher-Yates shuffle algorithm
 
 (function shuffle() {
   cards.forEach((card) => {
-    var index = Math.floor(Math.random() * 16)
-    card.style.order = index;
+    const randomIndex = Math.floor(Math.random() * cards.length);
+    card.style.order = randomIndex;
   });
 })();
-
-
-
-
